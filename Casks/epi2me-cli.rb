@@ -9,6 +9,7 @@ cask "epi2me-cli" do
 
   postflight do
     FileUtils.chmod "ugo+x", "/usr/local/Caskroom/epi2me-cli/#{version}/epi2me-cli-macos-#{version}"
+    File.unlink "#{HOMEBREW_PREFIX}/bin/epi2me-cli"
     File.symlink("/usr/local/Caskroom/epi2me-cli/#{version}/epi2me-cli-macos-#{version}", "#{HOMEBREW_PREFIX}/bin/epi2me-cli")
   end
 end
