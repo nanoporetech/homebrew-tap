@@ -1,6 +1,6 @@
 cask 'epi2me-agent@staging' do
-  version '2019.7.9.2549693'
-  sha256 'c5eb303220de9ed7881df69e0111c5b13d5d479c968ed7dcc6dcee03f369a3eb'
+  version '2019.8.6-2620783'
+  sha256 'c4d9e20a31ee6496e96f5ef81a74c8f32c17dbbe83e1a57d7391a554f9474635'
 
   url "https://cdn.oxfordnanoportal.com/software/metrichor-agent/staging/epi2me-agent-#{version}.dmg"
   name 'EPI2ME Agent (pre-release)'
