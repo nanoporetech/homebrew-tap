@@ -1,6 +1,6 @@
 cask "epi2me-cli@staging" do
-  version "2019.7.9-2549660"
-  sha256 "2ba97d6678ffc975e38428ae0b25eb052c1de2c08fdc1428d747036f180b6a2d"
+  version "2019.10.11-2815333"
+  sha256 "0ca718382c392b1fb91712b9ed58ef4317d4f7b3f9ec463002d139ca8f091450"
 
   url "https://cdn.oxfordnanoportal.com/software/metrichor-agent/staging/epi2me-cli-macos-#{version}.zip"
   name "EPI2ME CLI (pre-release)"
@@ -12,4 +12,6 @@ cask "epi2me-cli@staging" do
     File.unlink "#{HOMEBREW_PREFIX}/bin/epi2me-cli@staging" if File.exist?("#{HOMEBREW_PREFIX}/bin/epi2me-cli@staging")
     File.symlink("/usr/local/Caskroom/epi2me-cli@staging/#{version}/epi2me-cli-macos-#{version}", "#{HOMEBREW_PREFIX}/bin/epi2me-cli@staging")
   end
+
+  uninstall delete: "#{HOMEBREW_PREFIX}/bin/epi2me-cli@staging"
 end
