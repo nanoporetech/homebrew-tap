@@ -12,4 +12,6 @@ cask "epi2me-cli" do
     File.unlink "#{HOMEBREW_PREFIX}/bin/epi2me-cli" if File.exist?("#{HOMEBREW_PREFIX}/bin/epi2me-cli")
     File.symlink("/usr/local/Caskroom/epi2me-cli/#{version}/epi2me-cli-macos-#{version}", "#{HOMEBREW_PREFIX}/bin/epi2me-cli")
   end
+
+  uninstall delete: "#{HOMEBREW_PREFIX}/bin/epi2me-cli"
 end
