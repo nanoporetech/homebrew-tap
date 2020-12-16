@@ -1,0 +1,17 @@
+cask "{{NAME}}" do
+  version "{{VERSION}}"
+  sha256 "{{SHA256}}"
+
+  url "{{CDN}}/epi2me-cli-macos-#{version}.zip"
+  name "EPI2ME CLI ({{NAME}})"
+
+  homepage "https://metrichor.com/"
+
+  postflight do
+    FileUtils.chmod "ugo+x", "/usr/local/Caskroom/{{NAME}}/#{version}/epi2me-cli-macos-#{version}"
+    File.unlink "#{HOMEBREW_PREFIX}/bin/{{NAME}}" if File.exist?("#{HOMEBREW_PREFIX}/bin/{{NAME}}")
+    File.symlink("/usr/local/Caskroom/{{NAME}}/#{version}/epi2me-cli-macos-#{version}", "#{HOMEBREW_PREFIX}/bin/{{NAME}}")
+  end
+
+  uninstall delete: "#{HOMEBREW_PREFIX}/bin/{{NAME}}"
+end

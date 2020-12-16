@@ -3,7 +3,7 @@ cask "epi2me-cli@staging" do
   sha256 "37b3665239f324117674b476ff3e6575973f0f9f493c60c3ffb4999ddfe303bb"
 
   url "https://cdn.oxfordnanoportal.com/software/metrichor-agent/staging/epi2me-cli-macos-#{version}.zip"
-  name "EPI2ME CLI (pre-release)"
+  name "EPI2ME CLI (epi2me-cli@staging)"
 
   homepage "https://metrichor.com/"
 
