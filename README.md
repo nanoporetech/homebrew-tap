@@ -15,5 +15,6 @@ brew cask install Name-of-Cask
 ### Casks
 *  epi2me-cli
 *  epi2me-cli@staging
+*  epi2me-cli@development
 *  epi2me-agent
 *  epi2me-agent@staging
