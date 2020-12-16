@@ -43,7 +43,7 @@ epi2me-cli: .epi2me-common
 	rm -f $$latest ; \
 	wget -q $(CDN)/$$latest ; \
 	SHA256=$$(openssl sha256 $$latest | awk '{print $$NF}') ; \
-	VERSION=$$(echo $$latest | cut -d \- -f4,5,6 | cut -d . -f 1,2,3) ; \
+	VERSION=$$(echo $$latest | rev | cut -d . -f 2- | cut -d \- -f 1,2 | rev) ; \
 	cat templates/$(NAME) \
 	| sed "s/{{SHA256}}/$$SHA256/g" \
 	| sed "s/{{VERSION}}/$$VERSION/g" \
