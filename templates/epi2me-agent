@@ -1,0 +1,10 @@
+cask '{{NAME}}' do
+  version '{{VERSION}}'
+  sha256 '{{SHA256}}'
+
+  url "{{CDN}}/epi2me-agent-#{version}.dmg"
+  name 'EPI2ME Agent ({{NAME}}'
+  homepage 'https://metrichor.com/'
+
+  app 'EPI2MEAgent.app'
+end
