@@ -1,6 +1,6 @@
 cask 'epi2me-agent@development' do
-  version '3.1.3-4193568'
-  sha256 '14b70afb42278d5f087d9f799365de94c46015d4db82eb283ac261c819b7fd7e'
+  version '3.2.0-RC2'
+  sha256 'f1c052d96efc02c80c5e2895e98060bdbcdfc61f5cce0f343c944b469d40a435'
 
   url "https://cdn.oxfordnanoportal.com/software/metrichor-agent/development/epi2me-agent-#{version}.dmg"
   name 'EPI2ME Agent (epi2me-agent@development)'
