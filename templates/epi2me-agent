@@ -2,7 +2,7 @@ cask '{{NAME}}' do
   version '{{VERSION}}'
   sha256 '{{SHA256}}'
 
-  url "{{CDN}}/epi2me-agent-#{version}.dmg"
+  url "{{CDN}}/epi2me-agent3-#{version}.dmg"
   name 'EPI2ME Agent ({{NAME}})'
   homepage 'https://metrichor.com/'
 
