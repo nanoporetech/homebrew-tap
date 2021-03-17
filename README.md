@@ -9,7 +9,7 @@ brew tap nanoporetech/tap
 
 ### Installation
 ```code
-brew cask install Name-of-Cask
+brew install --cask Name-of-Cask
 ```
 
 ### Casks
@@ -18,3 +18,4 @@ brew cask install Name-of-Cask
 *  epi2me-cli@development
 *  epi2me-agent
 *  epi2me-agent@staging
+*  epi2me-agent@development
