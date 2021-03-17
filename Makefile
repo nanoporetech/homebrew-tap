@@ -40,10 +40,10 @@ epi2me-cli: .epi2me-common
 	rm -f index
 	wget -q $(CDN)/index
 	latest=$$(grep $(FILTER) index | sort -t , -nrk 1 | head -1 | cut -d , -f 3) ; \
+	VERSION=$$(echo $$latest | rev | cut -d . -f 2- | sed -E 's/\.([0-9]+)[^.]*$/.\1/g' | rev) ; \
 	rm -f $$latest ; \
 	wget -q $(CDN)/$$latest ; \
 	SHA256=$$(openssl sha256 $$latest | awk '{print $$NF}') ; \
-	VERSION=$$(echo $$latest | rev | cut -d . -f 2- | cut -d \- -f 1,2 | rev) ; \
 	cat templates/$(NAME) \
 	| sed "s/{{SHA256}}/$$SHA256/g" \
 	| sed "s/{{VERSION}}/$$VERSION/g" \
