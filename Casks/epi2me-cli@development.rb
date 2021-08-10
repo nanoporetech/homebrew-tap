@@ -1,6 +1,6 @@
 cask "epi2me-cli@development" do
-  version "2021.8.9-5733225"
-  sha256 "a812e2837b74715a4d784db5cbe8ecaa1a10f057d07537d527191395a337b37a"
+  version "2021.7.22-5651993"
+  sha256 "be4c78690d5e5b0b7a8f04bfd1895ca5ce5069ba3b0379653c44f6e82dd5216c"
 
   url "https://cdn.oxfordnanoportal.com/software/metrichor-agent/development/epi2me-cli-macos-#{version}.zip"
   name "EPI2ME CLI (epi2me-cli@development)"
