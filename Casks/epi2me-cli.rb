@@ -8,9 +8,9 @@ cask "epi2me-cli" do
   homepage "https://metrichor.com/"
 
   postflight do
-    FileUtils.chmod "ugo+x", "/usr/local/Caskroom/epi2me-cli/#{version}/epi2me-cli-macos-#{version}"
+    FileUtils.chmod "ugo+x", "#{HOMEBREW_PREFIX}/Caskroom/epi2me-cli/#{version}/epi2me-cli-macos-#{version}"
     File.unlink "#{HOMEBREW_PREFIX}/bin/epi2me-cli" if File.exist?("#{HOMEBREW_PREFIX}/bin/epi2me-cli")
-    File.symlink("/usr/local/Caskroom/epi2me-cli/#{version}/epi2me-cli-macos-#{version}", "#{HOMEBREW_PREFIX}/bin/epi2me-cli")
+    File.symlink("#{HOMEBREW_PREFIX}/Caskroom/epi2me-cli/#{version}/epi2me-cli-macos-#{version}", "#{HOMEBREW_PREFIX}/bin/epi2me-cli")
   end
 
   uninstall delete: "#{HOMEBREW_PREFIX}/bin/epi2me-cli"
