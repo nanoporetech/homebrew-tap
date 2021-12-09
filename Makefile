@@ -8,6 +8,7 @@ casks:
 	make epi2me-agent@development
 	make epi2me-agent@staging
 	make epi2me-agent
+	rm -rf cdn.oxfordnanoportal.com
 
 epi2me-agent@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/development
 epi2me-agent@development: NAME=epi2me-agent@development
@@ -41,8 +42,11 @@ epi2me-cli: .epi2me-common
 
 .epi2me-common:
 	rm -f index
-	wget -q $(CDN)/index
-	latest=$$(grep $(FILTER) index | sort -t , -nrk 1 | head -1 | cut -d , -f 3) ; \
+	index_url="$(CDN)/index"; \
+	wget --mirror $$index_url
+	index_file=$$(echo "$(CDN)/index" | $(SED) 's@^https://@@'); \
+	latest=$$(grep $(FILTER) $$index_file | sort -t , -nrk 1 | head -1 | cut -d , -f 3) ; \
+	echo "Fetching $$latest for checksumming"; \
 	VERSION=$$(echo $$latest | rev | cut -d . -f 2- | $(SED) -E 's/\.([0-9]+)[^.]*$$/.\1/g' | rev) ; \
 	rm -f $$latest ; \
 	wget -q $(CDN)/$$latest ; \
@@ -53,6 +57,6 @@ epi2me-cli: .epi2me-common
 	| $(SED) "s/{{NAME}}/$(NAME)/g" \
 	| $(SED) "s|{{CDN}}|$(CDN)|g" \
 	> Casks/$(NAME).rb ; \
-	rm -f index $$latest
+	rm -f $$latest
 
 .PHONY: casks epi2me-cli epi2me-cli@staging epi2me-cli@development
