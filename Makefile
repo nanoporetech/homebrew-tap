@@ -5,6 +5,7 @@ casks:
 	make epi2me-cli@development
 	make epi2me-cli@staging
 	make epi2me-cli
+	make epi2me-cli3@development
 	make epi2me-agent@development
 	make epi2me-agent@staging
 	make epi2me-agent
@@ -24,6 +25,11 @@ epi2me-agent: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent
 epi2me-agent: NAME=epi2me-agent
 epi2me-agent: FILTER=dmg
 epi2me-agent: .epi2me-common
+
+epi2me-cli3@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/development
+epi2me-cli3@development: NAME=epi2me-cli3@development
+epi2me-cli3@development: FILTER=cli3-macos
+epi2me-cli3@development: .epi2me-common
 
 epi2me-cli@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/development
 epi2me-cli@development: NAME=epi2me-cli@development
