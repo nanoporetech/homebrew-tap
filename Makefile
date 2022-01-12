@@ -2,8 +2,6 @@
 SED ?= sed
 
 casks:
-	make epi2me-cli@development
-	make epi2me-cli@staging
 	make epi2me-cli
 	make epi2me-cli3@development
 	make epi2me-agent@development
@@ -30,16 +28,6 @@ epi2me-cli3@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor
 epi2me-cli3@development: NAME=epi2me-cli3@development
 epi2me-cli3@development: FILTER=cli3-macos
 epi2me-cli3@development: .epi2me-common
-
-#epi2me-cli@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/development
-#epi2me-cli@development: NAME=epi2me-cli@development
-#epi2me-cli@development: FILTER=cli-macos
-#epi2me-cli@development: .epi2me-common
-
-#epi2me-cli@staging: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/staging
-#epi2me-cli@staging: NAME=epi2me-cli@staging
-#epi2me-cli@staging: FILTER=cli-macos
-#epi2me-cli@staging: .epi2me-common
 
 epi2me-cli: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent
 epi2me-cli: NAME=epi2me-cli
