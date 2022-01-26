@@ -1,5 +1,5 @@
 cask "epi2me-cli3@staging" do
-  version "3.0.0-6687741"
+  version "3.0.0-rc.1-6687741"
   sha256 "3c524776441435850d8cf629d18b8f1ccc58933349a9b6bc6bf7755261501077"
 
   url "https://cdn.oxfordnanoportal.com/software/metrichor-agent/staging/epi2me-cli3-macos-#{version}.zip"
