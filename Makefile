@@ -2,9 +2,9 @@
 SED ?= sed
 
 casks:
-	make epi2me-cli
 	make epi2me-cli3@development
 	make epi2me-cli3@staging
+	make epi2me-cli3
 	make epi2me-agent@development
 	make epi2me-agent@staging
 	make epi2me-agent
@@ -35,10 +35,10 @@ epi2me-cli3@staging: NAME=epi2me-cli3@staging
 epi2me-cli3@staging: FILTER=cli3-macos
 epi2me-cli3@staging: .epi2me-common
 
-epi2me-cli: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent
-epi2me-cli: NAME=epi2me-cli
-epi2me-cli: FILTER=cli-macos
-epi2me-cli: .epi2me-common
+epi2me-cli3: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent
+epi2me-cli3: NAME=epi2me-cli3
+epi2me-cli3: FILTER=cli3-macos
+epi2me-cli3: .epi2me-common
 
 .epi2me-common:
 	rm -f index
@@ -59,4 +59,4 @@ epi2me-cli: .epi2me-common
 	> Casks/$(NAME).rb ; \
 	rm -f $$latest
 
-.PHONY: casks epi2me-cli epi2me-cli@staging epi2me-cli@development epi2me-cli3@development epi2me-cli3@staging
+.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3
