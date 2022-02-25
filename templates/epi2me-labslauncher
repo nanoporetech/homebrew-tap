@@ -4,8 +4,7 @@ cask "{{NAME}}" do
 
   url "{{URL}}"
   name "EPI2ME Labs Launcher ({{NAME}})"
-
   homepage "https://labs.epi2me.io"
 
-  uninstall delete: "#{HOMEBREW_PREFIX}/bin/{{NAME}}"
+  app 'EPI2ME Labs Launcher'
 end
