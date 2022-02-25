@@ -1,6 +1,10 @@
 # On mac, install gsed from homebrew and run SED=gsed make
 SED ?= sed
 
+ifeq ($(shell uname), Darwin)
+	SED = gsed
+endif
+
 casks:
 	make epi2me-cli3@development
 	make epi2me-cli3@staging
@@ -39,6 +43,23 @@ epi2me-cli3: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent
 epi2me-cli3: NAME=epi2me-cli3
 epi2me-cli3: FILTER=cli3-macos
 epi2me-cli3: .epi2me-common
+
+epi2me-labslauncher: NAME=epi2me-labslauncher
+epi2me-labslauncher:
+	latest_url=$$(curl -sL https://api.github.com/repos/epi2me-labs/labslauncher/releases | jq -r '.[0].assets[].browser_download_url' | grep dmg) ; \
+	echo $$latest_url; \
+	wget $$latest_url; \
+	VERSION=$$(echo $$latest_url | gsed -E 's/^.*?\/(v[0-9][^\/]+)\/.*$$/\1/'); \
+	echo $$version; \
+	latest_file=$$(echo $$latest_url | rev | cut -d / -f 1 | rev); \
+	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
+	cat templates/$(NAME) \
+	| $(SED) "s/{{SHA256}}/$$SHA256/g" \
+	| $(SED) "s/{{VERSION}}/$$VERSION/g" \
+	| $(SED) "s/{{NAME}}/$(NAME)/g" \
+	| $(SED) "s|{{URL}}|$$latest_url|g" \
+	> Casks/$(NAME).rb ; \
+	rm -f $$latest_file
 
 .epi2me-common:
 	rm -f index
