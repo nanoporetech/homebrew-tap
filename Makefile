@@ -12,6 +12,7 @@ casks:
 	make epi2me-agent@development
 	make epi2me-agent@staging
 	make epi2me-agent
+	make epi2me-labslauncher
 	rm -rf cdn.oxfordnanoportal.com
 
 epi2me-agent@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/development
@@ -80,4 +81,4 @@ epi2me-labslauncher:
 	> Casks/$(NAME).rb ; \
 	rm -f $$latest
 
-.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3
+.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-labslauncher
