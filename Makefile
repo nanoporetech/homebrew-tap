@@ -47,7 +47,7 @@ epi2me-cli3: .epi2me-common
 
 epi2me-labslauncher: NAME=epi2me-labslauncher
 epi2me-labslauncher:
-	latest_url=$$(curl -sL https://api.github.com/repos/epi2me-labs/labslauncher/releases | jq -r '.[0].assets[].browser_download_url' | grep dmg) ; \
+	latest_url=$$(curl -sL https://api.github.com/repos/epi2me-labs/labslauncher/releases | jq -r '.[0].assets[].browser_download_url' | grep pkg) ; \
 	if [[ "$$latest_url" == "" ]]; then exit 1; fi; \
 	echo $$latest_url; \
 	wget $$latest_url; \
