@@ -1,6 +1,6 @@
 cask 'epi2me-agent@staging' do
-  version '3.6.2-10497150'
-  sha256 '543d8ab309cd7e304f8cdb5a2e2b0a36d9a11e97f82da1959268747fe05b1e0f'
+  version '3.6.2-10498254'
+  sha256 'd8af0928037912cc98d96b68bee55fa765b727940260916396f4dd5846d53d65'
 
   url "https://cdn.oxfordnanoportal.com/software/metrichor-agent/staging/epi2me-agent3-#{version}.dmg"
   name 'EPI2ME Agent (epi2me-agent@staging)'
