@@ -1,8 +1,8 @@
 cask "epi2me-labslauncher" do
   version ""
-  sha256 "49c106a7202804e08e567fc50d028fbb7fcd4c204e91c816022d5e43770c99b6"
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
-  url "https://github.com/epi2me-labs/labslauncher/releases/download/v3.1.5/ont-epi2melabs-v3.1.5-macos.pkg"
+  url ""
   name "EPI2ME Labs Launcher (epi2me-labslauncher)"
   homepage "https://labs.epi2me.io"
 
