@@ -6,5 +6,5 @@ cask "epi2me-labslauncher" do
   name "EPI2ME Labs Launcher (epi2me-labslauncher)"
   homepage "https://labs.epi2me.io"
 
-  pkg "EPI2MELabs-4.1.3.pkg", allow_untrusted: true
+  pkg "EPI2MELabs-.pkg", allow_untrusted: true
 end
