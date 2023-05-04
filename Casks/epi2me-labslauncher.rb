@@ -1,8 +1,8 @@
 cask "epi2me-labslauncher" do
-  version "4.1.3"
-  sha256 "32a81199bcb9f252b08f9e300cdeb1ff14e0791e81295bfe73aeffe2b9edcf69"
+  version ""
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
-  url "https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/installers/EPI2MELabs-4.1.3.pkg"
+  url ""
   name "EPI2ME Labs Launcher (epi2me-labslauncher)"
   homepage "https://labs.epi2me.io"
 
