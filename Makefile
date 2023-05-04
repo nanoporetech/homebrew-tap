@@ -82,4 +82,23 @@ epi2me-labslauncher:
 	> Casks/$(NAME).rb ; \
 	rm -f $$latest
 
+dorado: NAME=dorado
+dorado: CDN=https://cdn.oxfordnanoportal.com/software/analysis
+dorado:
+	rm -f dorado.tmp dorado*gz
+	curl -sL https://api.github.com/repos/nanoporetech/dorado/releases | jq -r '.[0].tag_name' | sed 's/^v//' > dorado.tmp
+	VERSION=$$(cat dorado.tmp) ; \
+	latest_file=dorado-$$VERSION-osx-arm64.tar.gz ; \
+	latest_url=$(CDN)/$$latest_file ; \
+	wget $$latest_url ; \
+	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
+	cat templates/$(NAME) \
+	| $(SED) "s/{{SHA256}}/$$SHA256/g" \
+	| $(SED) "s/{{VERSION}}/$$VERSION/g" \
+	| $(SED) "s/{{NAME}}/$(NAME)/g" \
+	| $(SED) "s|{{URL}}|$$latest_url|g" \
+	| $(SED) "s|{{CDN}}|$(CDN)|g" \
+	> Casks/$(NAME).rb ; \
+	rm -f dorado.tmp dorado*gz
+
 .PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-labslauncher
