@@ -6,5 +6,5 @@ cask "{{NAME}}" do
   name "EPI2ME Labs Launcher ({{NAME}})"
   homepage "https://labs.epi2me.io"
 
-  app 'EPI2ME Labs Launcher'
+  pkg "EPI2MELabs-{{VERSION}}.pkg", allow_untrusted: true
 end
