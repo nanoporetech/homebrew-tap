@@ -95,4 +95,20 @@ dorado:
 	> Casks/$(NAME).rb ; \
 	rm -f dorado.tmp dorado*gz
 
-.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-labslauncher dorado
+minknow-ui: NAME=minknow-ui
+minknow-ui: CDN=https://cdn.oxfordnanoportal.com/software/MinKNOW
+minknow-ui: MINKNOWUI ?= 5.5.10
+minknow-ui:
+	rm -f MinKNOW*
+	wget $(CDN)/MinKNOW-UI-OSX-$(MINKNOWUI)-arm.dmg
+	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
+	cat templates/$(NAME) \
+	| $(SED) "s/{{SHA256}}/$$SHA256/g" \
+	| $(SED) "s/{{VERSION}}/$$VERSION/g" \
+	| $(SED) "s/{{NAME}}/$(NAME)/g" \
+	| $(SED) "s|{{URL}}|$$latest_url|g" \
+	| $(SED) "s|{{CDN}}|$(CDN)|g" \
+	> Casks/$(NAME).rb ; \
+	rm -f MinKNOW*
+
+.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-labslauncher dorado minknow
