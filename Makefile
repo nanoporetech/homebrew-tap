@@ -6,7 +6,7 @@ ifeq ($(shell uname), Darwin)
 endif
 
 casks:
-	make -j 1 epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-labslauncher dorado
+	make -j 1 epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-labslauncher dorado minknow-ui
 	rm -rf cdn.oxfordnanoportal.com
 
 epi2me-agent@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/development
