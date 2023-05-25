@@ -100,11 +100,13 @@ minknow-ui: CDN=https://cdn.oxfordnanoportal.com/software/MinKNOW
 minknow-ui: MINKNOWUI ?= 5.5.10
 minknow-ui:
 	rm -f MinKNOW*
-	wget $(CDN)/MinKNOW-UI-OSX-$(MINKNOWUI)-arm.dmg
+	latest_file=MinKNOW-UI-OSX-$(MINKNOWUI)-arm.dmg ; \
+	latest_url=$(CDN)/$$latest_file ; \
+	wget $$latest_url ; \
 	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
 	cat templates/$(NAME) \
 	| $(SED) "s/{{SHA256}}/$$SHA256/g" \
-	| $(SED) "s/{{VERSION}}/$$VERSION/g" \
+	| $(SED) "s/{{VERSION}}/$(MINKNOWUI)/g" \
 	| $(SED) "s/{{NAME}}/$(NAME)/g" \
 	| $(SED) "s|{{URL}}|$$latest_url|g" \
 	| $(SED) "s|{{CDN}}|$(CDN)|g" \
