@@ -6,4 +6,6 @@ cask "minknow-ui" do
   name "MinKNOW UI for Oxford Nanopore Sequencing"
 
   homepage "https://community.nanoporetech.com"
+
+  app "MinKNOW UI.app"
 end
