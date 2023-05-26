@@ -6,7 +6,7 @@ ifeq ($(shell uname), Darwin)
 endif
 
 casks:
-	make -j 1 epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-labslauncher dorado minknow-ui
+	make -j 1 epi2me-one epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent dorado minknow-ui
 	rm -rf cdn.oxfordnanoportal.com
 
 epi2me-agent@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/development
@@ -39,8 +39,8 @@ epi2me-cli3: NAME=epi2me-cli3
 epi2me-cli3: FILTER=cli3-macos
 epi2me-cli3: .epi2me-common
 
-epi2me-labslauncher: NAME=epi2me-labslauncher
-epi2me-labslauncher:
+epi2me-one: NAME=epi2me-one
+epi2me-one:
 	latest_url=$$(curl -sL https://labs.epi2me.io/downloads/ | $(SED) "s/</\n</g" | grep .pkg | head -1 | cut -d \" -f 2) ; \
 	if [[ "$$latest_url" == "" ]]; then exit 1; fi; \
 	echo $$latest_url; \
@@ -113,4 +113,4 @@ minknow-ui:
 	> Casks/$(NAME).rb ; \
 	rm -f MinKNOW*
 
-.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-labslauncher dorado minknow
+.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-one dorado minknow

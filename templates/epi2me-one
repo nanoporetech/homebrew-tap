@@ -1,0 +1,10 @@
+cask "{{NAME}}" do
+  version "{{VERSION}}"
+  sha256 "{{SHA256}}"
+
+  url "{{URL}}"
+  name "EPI2ME ONE ({{NAME}})"
+  homepage "https://labs.epi2me.io"
+
+  pkg "EPI2ME-x86-{{VERSION}}.pkg", allow_untrusted: true
+end
