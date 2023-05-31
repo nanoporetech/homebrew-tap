@@ -1,6 +1,6 @@
 ## Oxford Nanopore Technologies Homebrew Casks
 
-See [http://brew.sh/]() for further information on Homebrew and Cask.
+See [http://brew.sh/](http://brew.sh/) for further information on Homebrew and Cask.
 
 ### Tap
 ```code
@@ -14,4 +14,4 @@ brew install --cask Name-of-Cask
 
 ### Casks
 
-Please see [Casks/]() subdirectory for available applications.
+Please see [Casks/](Casks/) subdirectory for available applications.
