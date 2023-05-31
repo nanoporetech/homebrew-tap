@@ -13,11 +13,5 @@ brew install --cask Name-of-Cask
 ```
 
 ### Casks
-*  dorado
-*  epi2me-cli3
-*  epi2me-cli3@staging
-*  epi2me-cli3@development
-*  epi2me-agent
-*  epi2me-agent@staging
-*  epi2me-agent@development
-*  epi2me-labslauncher
+
+Please see [Casks/]() subdirectory for available applications.
