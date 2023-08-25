@@ -1,10 +1,10 @@
 cask "epi2me-one" do
-  version ""
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  version "5.1.1"
+  sha256 "62fde864086ac2f7af7d68e82a364ce52de4e683031811bf9f8ddab1529a75fb"
 
-  url ""
+  url "https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/installers/EPI2ME-x86-5.1.1.pkg"
   name "EPI2ME ONE (epi2me-one)"
   homepage "https://labs.epi2me.io"
 
-  pkg "EPI2ME-x86-.pkg", allow_untrusted: true
+  pkg "EPI2ME-x86-5.1.1.pkg", allow_untrusted: true
 end
