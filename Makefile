@@ -45,7 +45,7 @@ epi2me-one:
 	if [[ "$$latest_url" == "" ]]; then exit 1; fi; \
 	echo $$latest_url; \
 	wget $$latest_url; \
-	VERSION=$$(echo $$latest_url |  $(SED) -E 's/^.*?-([0-9.]+)[.].*$$/\1/') ; \
+	VERSION=$$(echo $$latest_url | $(SED) -E 's/^.*?-([0-9.]+[-](x64|aarch64|arm64))?[.](pkg|dmg)$$/\1/') ; \
 	echo $$version; \
 	latest_file=$$(echo $$latest_url | rev | cut -d / -f 1 | rev); \
 	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
