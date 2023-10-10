@@ -82,7 +82,7 @@ dorado:
 	rm -f dorado.tmp dorado*gz
 	curl -sL https://api.github.com/repos/nanoporetech/dorado/releases | jq -r '.[0].tag_name' | sed 's/^v//' > dorado.tmp
 	VERSION=$$(cat dorado.tmp) ; \
-	latest_file=dorado-$$VERSION-osx-arm64.tar.gz ; \
+	latest_file=dorado-$$VERSION-osx-arm64.zip ; \
 	latest_url=$(CDN)/$$latest_file ; \
 	wget $$latest_url ; \
 	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
@@ -93,7 +93,7 @@ dorado:
 	| $(SED) "s|{{URL}}|$$latest_url|g" \
 	| $(SED) "s|{{CDN}}|$(CDN)|g" \
 	> Casks/$(NAME).rb ; \
-	rm -f dorado.tmp dorado*gz
+	rm -f dorado.tmp dorado*zip
 
 minknow-ui: NAME=minknow-ui
 minknow-ui: CDN=https://cdn.oxfordnanoportal.com/software/MinKNOW

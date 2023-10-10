@@ -2,7 +2,7 @@ cask "dorado" do
   version "{{VERSION}}"
   sha256 "{{SHA256}}"
 
-  url "{{CDN}}/dorado-#{version}-osx-arm64.tar.gz"
+  url "{{CDN}}/dorado-#{version}-osx-arm64.zip"
   name "Dorado libtorch Basecaller for Oxford Nanopore reads"
 
   homepage "https://github.com/nanoporetech/dorado/"
