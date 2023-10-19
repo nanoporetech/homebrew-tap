@@ -39,13 +39,33 @@ epi2me-cli3: NAME=epi2me-cli3
 epi2me-cli3: FILTER=cli3-macos
 epi2me-cli3: .epi2me-common
 
-epi2me-one: NAME=epi2me-one
-epi2me-one:
+epi2me-one: epi2me-one-arm64 epi2me-one-amd64
+
+epi2me-one-arm64: NAME=epi2me-one
+epi2me-one-arm64:
 	latest_url=$$(curl -sL https://labs.epi2me.io/downloads/ | $(SED) "s/</\n</g" | grep .pkg | head -1 | cut -d \" -f 2) ; \
 	if [[ "$$latest_url" == "" ]]; then exit 1; fi; \
 	echo $$latest_url; \
 	wget $$latest_url; \
-	VERSION=$$(echo $$latest_url | $(SED) -E 's/^.*?-([0-9.]+[-](x64|aarch64|arm64))?[.](pkg|dmg)$$/\1/') ; \
+	VERSION=$$(echo $$latest_url | $(SED) -E 's/^.*?-([0-9.]+[-](aarch64|arm64))?[.](pkg|dmg)$$/\1/') ; \
+	echo $$version; \
+	latest_file=$$(echo $$latest_url | rev | cut -d / -f 1 | rev); \
+	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
+	cat templates/$(NAME) \
+	| $(SED) "s/{{SHA256}}/$$SHA256/g" \
+	| $(SED) "s/{{VERSION}}/$$VERSION/g" \
+	| $(SED) "s/{{NAME}}/$(NAME)/g" \
+	| $(SED) "s|{{URL}}|$$latest_url|g" \
+	> Casks/$(NAME).rb ; \
+	rm -f $$latest_file
+
+epi2me-one-x86_64: NAME=epi2me-one-x86_64
+epi2me-one-x86_64:
+	latest_url=$$(curl -sL https://labs.epi2me.io/downloads/ | $(SED) "s/</\n</g" | grep .pkg | head -1 | cut -d \" -f 2) ; \
+	if [[ "$$latest_url" == "" ]]; then exit 1; fi; \
+	echo $$latest_url; \
+	wget $$latest_url; \
+	VERSION=$$(echo $$latest_url | $(SED) -E 's/^.*?-([0-9.]+[-](x64))?[.](pkg|dmg)$$/\1/') ; \
 	echo $$version; \
 	latest_file=$$(echo $$latest_url | rev | cut -d / -f 1 | rev); \
 	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \

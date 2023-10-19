@@ -7,6 +7,6 @@ cask "{{NAME}}" do
   homepage "https://labs.epi2me.io"
 
   pkg "EPI2ME-{{VERSION}}.pkg", allow_untrusted: true
-  conflicts_with cask: "epi2me-one-x86_64"
-  depends_on arch: :arm64
+  conflicts_with cask: "epi2me-one-arm64"
+  depends_on arch: :x86_64
 end
