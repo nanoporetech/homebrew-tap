@@ -1,6 +1,6 @@
 cask "dorado" do
-  version "0.5.1"
-  sha256 "f406c376eab3176826c0e9e9fb73087f476c4dc09d488620870b3b96a26b5046"
+  version ""
+  sha256 ""
 
   url "https://cdn.oxfordnanoportal.com/software/analysis/dorado-#{version}-osx-arm64.zip"
   name "Dorado libtorch Basecaller for Oxford Nanopore reads"
