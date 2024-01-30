@@ -1,5 +1,6 @@
 # On mac, install gsed from homebrew and run SED=gsed make
 SED ?= sed
+MINKNOWUI ?= 5.5.10
 
 ifeq ($(shell uname), Darwin)
 	SED = gsed
@@ -117,7 +118,6 @@ dorado:
 
 minknow-ui: NAME=minknow-ui
 minknow-ui: CDN=https://cdn.oxfordnanoportal.com/software/MinKNOW
-minknow-ui: MINKNOWUI ?= 5.5.10
 minknow-ui:
 	rm -f MinKNOW*
 	latest_file=MinKNOW-UI-OSX-$(MINKNOWUI)-arm.dmg ; \
