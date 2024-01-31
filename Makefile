@@ -1,13 +1,12 @@
 # On mac, install gsed from homebrew and run SED=gsed make
 SED ?= sed
-MINKNOWUI ?= 5.5.10
 
 ifeq ($(shell uname), Darwin)
 	SED = gsed
 endif
 
 casks:
-	make -j 1 epi2me-one epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent dorado minknow-ui
+	make -j 1 epi2me-one epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent
 	rm -rf cdn.oxfordnanoportal.com
 
 epi2me-agent@development: CDN=https://cdn.oxfordnanoportal.com/software/metrichor-agent/development
@@ -97,40 +96,4 @@ epi2me-one-x86_64:
 	> Casks/$(NAME).rb ; \
 	rm -f $$latest
 
-dorado: NAME=dorado
-dorado: CDN=https://cdn.oxfordnanoportal.com/software/analysis
-dorado:
-	rm -f dorado.tmp dorado*gz
-	curl -sL https://api.github.com/repos/nanoporetech/dorado/releases | jq -r '.[0].tag_name' | sed 's/^v//' > dorado.tmp
-	VERSION=$$(cat dorado.tmp) ; \
-	latest_file=dorado-$$VERSION-osx-arm64.zip ; \
-	latest_url=$(CDN)/$$latest_file ; \
-	wget $$latest_url ; \
-	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
-	cat templates/$(NAME) \
-	| $(SED) "s/{{SHA256}}/$$SHA256/g" \
-	| $(SED) "s/{{VERSION}}/$$VERSION/g" \
-	| $(SED) "s/{{NAME}}/$(NAME)/g" \
-	| $(SED) "s|{{URL}}|$$latest_url|g" \
-	| $(SED) "s|{{CDN}}|$(CDN)|g" \
-	> Casks/$(NAME).rb ; \
-	rm -f dorado.tmp dorado*zip
-
-minknow-ui: NAME=minknow-ui
-minknow-ui: CDN=https://cdn.oxfordnanoportal.com/software/MinKNOW
-minknow-ui:
-	rm -f MinKNOW*
-	latest_file=MinKNOW-UI-OSX-$(MINKNOWUI)-arm.dmg ; \
-	latest_url=$(CDN)/$$latest_file ; \
-	wget $$latest_url ; \
-	SHA256=$$(openssl sha256 $$latest_file | awk '{print $$NF}') ; \
-	cat templates/$(NAME) \
-	| $(SED) "s/{{SHA256}}/$$SHA256/g" \
-	| $(SED) "s/{{VERSION}}/$(MINKNOWUI)/g" \
-	| $(SED) "s/{{NAME}}/$(NAME)/g" \
-	| $(SED) "s|{{URL}}|$$latest_url|g" \
-	| $(SED) "s|{{CDN}}|$(CDN)|g" \
-	> Casks/$(NAME).rb ; \
-	rm -f MinKNOW*
-
-.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-one dorado minknow
+.PHONY: casks epi2me-cli3@development epi2me-cli3@staging epi2me-cli3 epi2me-agent@development epi2me-agent@staging epi2me-agent epi2me-one
