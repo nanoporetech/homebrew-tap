@@ -1,12 +1,12 @@
 cask "epi2me-one-x86_64" do
-  version "5.1.9-x64"
-  sha256 "9286c0f85e2711ff77faaae0d09f0fee17de1a88a1d62d6a9341e593eb9c42a0"
+  version "5.1.10-x64"
+  sha256 "f17f325a883511d1bfa67ed9e1ec188f4b4154402144b9787a830df8d700ca88"
 
-  url "https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/installers/EPI2ME-5.1.9-x64.pkg"
+  url "https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/installers/EPI2ME-5.1.10-x64.pkg"
   name "EPI2ME ONE (epi2me-one-x86_64)"
   homepage "https://labs.epi2me.io"
 
-  pkg "EPI2ME-5.1.9-x64.pkg", allow_untrusted: true
+  pkg "EPI2ME-5.1.10-x64.pkg", allow_untrusted: true
   conflicts_with cask: "epi2me-one-arm64"
   depends_on arch: :x86_64
 end
