@@ -1,6 +1,6 @@
 cask "epi2me-one" do
   version "5.1.10-arm64"
-  sha256 "38645ce72dd03080284067c0fb0379c1563ef1e4d289e9ce06a996bdda104045"
+  sha256 "065645c8972cbdd86cd8e55705375060ab5cc16f8664c536e70bbbf0b03220fb"
 
   url "https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/installers/EPI2ME-5.1.10-arm64.pkg"
   name "EPI2ME ONE (epi2me-one)"
